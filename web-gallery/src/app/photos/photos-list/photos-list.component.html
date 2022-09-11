@@ -1,9 +1,12 @@
-<ol class="list-unstyled row">
-  <li *ngFor="let photo of photos" class="col-4">
-    <wg-photo 
-      [url]="photo.url" 
-      [description]="photo.description">
-    </wg-photo>
-  </li>
-</ol>
+<div class="text-center mt-3 mb-3">
+    <form>
+        <input
+            class="rounded"
+            type="search"
+            placeholder="search..."
+            (keyup)="filter = $event.target.value"
+            autofocus>
+    </form>
+</div>
 
+<ap-photos [photos] = "photos | filterByDescription: filter"></ap-photos>
